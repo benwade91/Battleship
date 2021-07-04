@@ -3,79 +3,8 @@
 
 <head>
   <title>Socket.IO chat</title>
-  <style>
-    body {
-      margin: 0;
-      padding-bottom: 3rem;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-
-    #form {
-      background: rgba(0, 0, 0, 0.15);
-      padding: 0.25rem;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      display: flex;
-      height: 3rem;
-      box-sizing: border-box;
-      backdrop-filter: blur(10px);
-    }
-
-    #input {
-      border: none;
-      padding: 0 1rem;
-      flex-grow: 1;
-      border-radius: 2rem;
-      margin: 0.25rem;
-    }
-
-    #input:focus {
-      outline: none;
-    }
-
-    #form>button {
-      background: #333;
-      border: none;
-      padding: 0 1rem;
-      margin: 0.25rem;
-      border-radius: 3px;
-      outline: none;
-      color: #fff;
-    }
-
-    #messages {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    #messages>li {
-      padding: 0.5rem 1rem;
-    }
-
-    #messages>li:nth-child(odd) {
-      background: #efefef;
-    }
-    #gameBoard {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    table{
-      border-collapse: collapse;
-    }
-    td, th {
-      width: 6vw;
-      height: 6vw;
-      border: 1px black solid;
-      margin: 0;
-      text-align: center;
-    }
-  </style>
+  <link rel="stylesheet" href="./style.css">
 </head>
-
 <body>
   <div>
     <table id="gameBoard">
@@ -94,133 +23,133 @@
       </tr>
       <tr>
         <td>A</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td class="gameCell" id="A1"></td>
+        <td class="gameCell" id="A2"></td>
+        <td class="gameCell" id="A3"></td>
+        <td class="gameCell" id="A4"></td>
+        <td class="gameCell" id="A5"></td>
+        <td class="gameCell" id="A6"></td>
+        <td class="gameCell" id="A7"></td>
+        <td class="gameCell" id="A8"></td>
+        <td class="gameCell" id="A9"></td>
+        <td class="gameCell" id="A0"></td>
       </tr>
       <tr>
         <td>B</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td class="gameCell" id="B1"></td>
+        <td class="gameCell" id="B2"></td>
+        <td class="gameCell" id="B3"></td>
+        <td class="gameCell" id="B4"></td>
+        <td class="gameCell" id="B5"></td>
+        <td class="gameCell" id="B6"></td>
+        <td class="gameCell" id="B7"></td>
+        <td class="gameCell" id="B8"></td>
+        <td class="gameCell" id="B9"></td>
+        <td class="gameCell" id="B0"></td>
       </tr>
       <tr>
         <td>C</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td class="gameCell" id="C1"></td>
+        <td class="gameCell" id="C2"></td>
+        <td class="gameCell" id="C3"></td>
+        <td class="gameCell" id="C4"></td>
+        <td class="gameCell" id="C5"></td>
+        <td class="gameCell" id="C6"></td>
+        <td class="gameCell" id="C7"></td>
+        <td class="gameCell" id="C8"></td>
+        <td class="gameCell" id="C9"></td>
+        <td class="gameCell" id="C0"></td>
       </tr>
       <tr>
         <td>D</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td class="gameCell" id="D1"></td>
+        <td class="gameCell" id="D2"></td>
+        <td class="gameCell" id="D3"></td>
+        <td class="gameCell" id="D4"></td>
+        <td class="gameCell" id="D5"></td>
+        <td class="gameCell" id="D6"></td>
+        <td class="gameCell" id="D7"></td>
+        <td class="gameCell" id="D8"></td>
+        <td class="gameCell" id="D9"></td>
+        <td class="gameCell" id="D0"></td>
       </tr>
       <tr>
         <td>E</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td class="gameCell" id="E1"></td>
+        <td class="gameCell" id="E2"></td>
+        <td class="gameCell" id="E3"></td>
+        <td class="gameCell" id="E4"></td>
+        <td class="gameCell" id="E5"></td>
+        <td class="gameCell" id="E6"></td>
+        <td class="gameCell" id="E7"></td>
+        <td class="gameCell" id="E8"></td>
+        <td class="gameCell" id="E9"></td>
+        <td class="gameCell" id="E0"></td>
       </tr>
       <tr>
         <td>F</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td class="gameCell" id="F1"></td>
+        <td class="gameCell" id="F2"></td>
+        <td class="gameCell" id="F3"></td>
+        <td class="gameCell" id="F4"></td>
+        <td class="gameCell" id="F5"></td>
+        <td class="gameCell" id="F6"></td>
+        <td class="gameCell" id="F7"></td>
+        <td class="gameCell" id="F8"></td>
+        <td class="gameCell" id="F9"></td>
+        <td class="gameCell" id="F0"></td>
       </tr>
       <tr>
         <td>G</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td class="gameCell" id="G1"></td>
+        <td class="gameCell" id="G2"></td>
+        <td class="gameCell" id="G3"></td>
+        <td class="gameCell" id="G4"></td>
+        <td class="gameCell" id="G5"></td>
+        <td class="gameCell" id="G6"></td>
+        <td class="gameCell" id="G7"></td>
+        <td class="gameCell" id="G8"></td>
+        <td class="gameCell" id="G9"></td>
+        <td class="gameCell" id="G0"></td>
       </tr>
       <tr>
         <td>H</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td class="gameCell" id="H1"></td>
+        <td class="gameCell" id="H2"></td>
+        <td class="gameCell" id="H3"></td>
+        <td class="gameCell" id="H4"></td>
+        <td class="gameCell" id="H5"></td>
+        <td class="gameCell" id="H6"></td>
+        <td class="gameCell" id="H7"></td>
+        <td class="gameCell" id="H8"></td>
+        <td class="gameCell" id="H9"></td>
+        <td class="gameCell" id="H0"></td>
       </tr>
       <tr>
         <td>I</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td class="gameCell" id="I1"></td>
+        <td class="gameCell" id="I2"></td>
+        <td class="gameCell" id="I3"></td>
+        <td class="gameCell" id="I4"></td>
+        <td class="gameCell" id="I5"></td>
+        <td class="gameCell" id="I6"></td>
+        <td class="gameCell" id="I7"></td>
+        <td class="gameCell" id="I8"></td>
+        <td class="gameCell" id="I9"></td>
+        <td class="gameCell" id="I0"></td>
       </tr>
       <tr>
         <td>J</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td class="gameCell" id="J1"></td>
+        <td class="gameCell" id="J2"></td>
+        <td class="gameCell" id="J3"></td>
+        <td class="gameCell" id="J4"></td>
+        <td class="gameCell" id="J5"></td>
+        <td class="gameCell" id="J6"></td>
+        <td class="gameCell" id="J7"></td>
+        <td class="gameCell" id="J8"></td>
+        <td class="gameCell" id="J9"></td>
+        <td class="gameCell" id="J0"></td>
       </tr>
     </table>
   </div>

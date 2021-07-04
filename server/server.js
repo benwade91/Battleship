@@ -26,6 +26,10 @@ app.get('/script.js', (req, res) => {
     res.sendFile((path.join(__dirname,'../', 'client', 'script.js')))
 })
 
+app.get('/style.css', (req, res) => {
+    res.sendFile((path.join(__dirname,'../', 'client', 'style.css')))
+})
+
 io.on('connection', (socket) => {
     console.log('New user connection')
 

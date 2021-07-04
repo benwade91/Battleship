@@ -1,5 +1,3 @@
-// import io from 'socket.io-client';
-
 var socket = io();
 
 var form = document.getElementById('form');
